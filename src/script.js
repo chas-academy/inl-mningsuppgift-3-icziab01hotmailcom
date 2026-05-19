@@ -34,6 +34,8 @@ function addToCart(){
 }
 
 function renderCart(){
+
+    cartList.innerHTML = "";
     for (item of cart){
         const li = document.createElement("li");
         li.textContent = `${item.productName} - ${item.productPrice}kr (x${item.quantity})`
@@ -41,3 +43,7 @@ function renderCart(){
     }
 }
 
+addButton.addEventListener("click", () =>{
+    addToCart();
+}
+)
