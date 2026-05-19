@@ -1,10 +1,11 @@
 
-let cart = [];
+const productInput = document.getElementById("productInput")
+const priceInput = document.getElementById("priceInput")
+const addButton = document.getElementById("addButton")
+const cartList = document.getElementById("cartList")
 
-const productInput = document.getElementById("productInput");
-const priceInput = document.getElementById("priceInput");
-const addButton = document.getElementById("addButton");
-const cartList = document.getElementById("cartList");
+let cart = []
+
 
 function addToCart(){
     const productName = productInput.value
@@ -16,12 +17,12 @@ function addToCart(){
         quantity: 1,
     }
 
-    let itemExist = false;
+    let itemExist = false
 
     for (item of cart){
         if (item.productName === productName){
             item.quantity++
-            itemExist = true;
+            itemExist = true
         }
     }
 
@@ -29,13 +30,16 @@ function addToCart(){
         cart.push(newProduct)
     }
     
-    productInput.value = "";
-    priceInput.value = "";
+    productInput.value = ""
+    priceInput.value = ""
+
+    renderCart()
 }
 
 function renderCart(){
 
-    cartList.innerHTML = "";
+    cartList.innerHTML = ""
+
     for (item of cart){
         const li = document.createElement("li");
         li.textContent = `${item.productName} - ${item.productPrice}kr (x${item.quantity})`
@@ -43,7 +47,9 @@ function renderCart(){
     }
 }
 
-addButton.addEventListener("click", () =>{
-    addToCart();
-}
+
+addButton.addEventListener("click", () =>{{
+    addToCart()
+}}
+
 )
